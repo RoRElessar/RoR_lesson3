@@ -1,0 +1,22 @@
+<h1>Sign up</h1>
+
+<div>
+    <%= form_for(@user) do |f|%>
+      <%= render partial: 'shared/error_messages' %>
+      <%= f.label :name %> <br>
+      <%= f.text_field :name, placeholder: 'Name' %> <br>
+
+      <%= f.label :email %> <br>
+      <%= f.text_field :email, placeholder: 'E-mail' %> <br>
+
+      <%= f.label :password %> <br>
+      <%= f.password_field :password, placeholder: 'Password' %> <br>
+
+      <%= f.label :password_confirmation %> <br>
+      <%= f.password_field :password_confirmation, placeholder: 'Confirm your password' %> <br>
+
+      <%= f.submit "Create user", class: "btn btn-large btn-success"%>
+    <% end %>
+</div>
+
+<p><%= link_to "Back", signin_path%></p>
