@@ -2,6 +2,8 @@
 
 <h1>Listing Posts</h1>
 
+<%= will_paginate %>
+
 <table>
     <% @posts.each do |post| %>
       <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
@@ -24,4 +26,7 @@
 
 <br>
 
-<a class="btn btn-success"<%= link_to 'New Post', new_post_path %> </a>
+<a class="btn btn-primary"<%= link_to 'New Post', new_post_path %> </a>
+<p><%= link_to "Back", current_user %></p>
+
+<%= will_paginate %>
