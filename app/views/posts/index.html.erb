@@ -17,8 +17,10 @@
 
         <td class="list_actions">
           <%= link_to 'Show', post %> <br/>
-          <%= link_to 'Edit', edit_post_path(post) %> <br/>
-          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if current_user == post.user %>
+            <%= link_to 'Edit', edit_post_path(post) %> <br/>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </td>
       </tr>
     <% end %>
