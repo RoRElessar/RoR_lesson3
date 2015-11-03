@@ -2,18 +2,20 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @post.title %>
+  <%= @post.try(:title) %>
 </p>
 
 <p>
   <strong>Body:</strong>
-  <%= @post.body %>
+  <%= @post.try(:body) %>
 </p>
 
 <p>
   <strong>Tags:</strong>
-  <%= @post.tags %>
+  <%= @post.try(:tags) %>
 </p>
 
+<%if current_user == @post.user%>
 <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>
