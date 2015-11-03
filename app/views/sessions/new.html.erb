@@ -1,16 +1,20 @@
-<h1>Sign in</h1>
+<% unless signed_in?%>
+    <h1 xmlns="http://www.w3.org/1999/html">Sign in</h1>
 
-<div>
-  <%= form_for(:session, url: sessions_path) do |f| %>
+  <div>
+    <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :email%> <br>
-      <%= f.text_field :email, placeholder: 'E-mail'%> <br>
+        <%= f.label :email%> <br>
+        <%= f.text_field :email, placeholder: 'E-mail'%> <br>
 
-      <%= f.label :password%> <br>
-      <%= f.password_field :password, placeholder: 'Password'%> <br>
+        <%= f.label :password%> <br>
+        <%= f.password_field :password, placeholder: 'Password'%> <br>
 
-      <%= f.submit "Log in", class: "btn btn-large btn-success"%>
-  <% end %>
+        <%= f.submit "Log in", class: "btn btn-large btn-success"%>
+    <% end %>
 
-  <p>New user? <%= link_to "Sign up now!", signup_path%></p>
-</div>
+    <p>New user? <%= link_to "Sign up now!", signup_path%></p>
+  </div>
+  <% else %>
+    <h3 align="center">Sorry, but you have to go <%= link_to "back", current_user %></h3>
+<% end %>

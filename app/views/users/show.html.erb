@@ -3,8 +3,10 @@
   <%= @user.name %>
 </h1>
 
-<p><%= link_to "Edit profile", edit_user_path%></p>
-<p><%= link_to "Posts", posts_path%></p>
-<p><%= link_to "Show all users", users_path%></p>
-<p><%= link_to "Back", current_user %></p>
-<p><%= link_to "Log out", signout_path, method: "delete"%></p>
+<% if signed_in?%>
+  <p><%= link_to "Edit profile", edit_user_path%></p>
+  <p><%= link_to "Posts", posts_path%></p>
+  <p><%= link_to "Show all users", users_path%></p>
+  <p><%= link_to "Back", current_user %></p>
+  <p><%= link_to "Log out", signout_path, method: "delete"%></p>
+<% end %>
