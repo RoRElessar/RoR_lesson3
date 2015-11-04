@@ -1,7 +1,10 @@
+<% if signed_in?%>
 <h1 align="center"><%= current_user.name%>'s profile.</h1>
 
 <h3>
   <%= gravatar_for @user %> <%= link_to 'Edit profile:', edit_user_path%>
   <%= @user.name %>
 </h3>
-
+<% else %>
+    <h1 align="center">Please <%= link_to 'sign in', new_session_path%></h1>
+<% end %>
