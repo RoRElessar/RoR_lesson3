@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 
-<<<<<<< HEAD
 <body>
   <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
@@ -25,7 +24,7 @@
             <li><%= link_to 'Profile', current_user %></li>
             <li><%= link_to 'All users', users_path %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to "Log out", signout_path, method: "delete"%></li>
+            <li><%= link_to 'Log out', signout_path, method: "delete"%></li>
           </ul>
         </div>
              <% else %>
