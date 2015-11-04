@@ -16,12 +16,10 @@
     <%= f.label :password_confirmation%> <br>
     <%= f.password_field :password_confirmation, placeholder: 'Confirm password'%> <br>
 
-    <%= f.submit "Save changes", class: "btn btn-large btn-warning"%>
-
+    <%= f.submit 'Save changes', class: "btn btn-large btn-primary"%> <br>
+    <%= link_to 'Back to profile', user_path%>
   <% end %>
   <br>
   <%= gravatar_for @user%>
   <a href="http://gravatar.com/emails">change</a>
-  <br>
-  <%= link_to "Back to profile", current_user%>
 </div>

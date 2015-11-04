@@ -6,13 +6,13 @@
 
 <table>
     <% @posts.each do |post| %>
-      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
         <td class="list_description">
          <dl> <%= post.title %>
            <dt> <%= post.body %> </dt>
             <dd><%= post.tags %> </dd>
          </dl>
+         <dl>Created by <b><%= post.user.name if post.user %></b></dl>
         </td>
 
         <td class="list_actions">
@@ -22,13 +22,13 @@
             <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>
-      </tr>
     <% end %>
   </table>
 
 <br>
 
-<a class="btn btn-primary"<%= link_to 'New Post', new_post_path %> </a>
-<p><%= link_to "Back", current_user %></p>
-
+<% if signed_in?%>
+  <a class="btn btn-primary"<%= link_to 'New Post', new_post_path %> </a>
+  <p><%= link_to "Back", current_user %></p>
+<% end %>
 <%= will_paginate %>

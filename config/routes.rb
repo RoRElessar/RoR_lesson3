@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'sessions#new'
+   root 'posts#index'
    match '/signup', to: 'users#new',         via: 'get'
    match '/signin', to: 'sessions#new',      via: 'get'
    match '/signout', to: 'sessions#destroy', via: 'delete'
