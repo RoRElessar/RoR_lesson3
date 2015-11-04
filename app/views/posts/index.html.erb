@@ -13,7 +13,7 @@
            <dt> <%= post.body %> </dt>
             <dd><%= post.tags %> </dd>
          </dl>
-          <dl>Created by <%= post.user.name %></dl>
+          <dl>Created by <%= post.user[:name] %></dl>
         </td>
 
         <td class="list_actions">
