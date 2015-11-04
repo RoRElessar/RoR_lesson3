@@ -1,12 +1,10 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
-
 <% if signed_in?%>
-  <p><%= link_to "Edit profile", edit_user_path%></p>
-  <p><%= link_to "Posts", posts_path%></p>
-  <p><%= link_to "Show all users", users_path%></p>
-  <p><%= link_to "Back", current_user %></p>
-  <p><%= link_to "Log out", signout_path, method: "delete"%></p>
+<h1 align="center"><%= current_user.name%>'s profile.</h1>
+
+<h3>
+  <%= gravatar_for @user %> <%= link_to 'Edit profile:', edit_user_path%>
+  <%= @user.name %>
+</h3>
+<% else %>
+    <h1 align="center">Please <%= link_to 'sign in', new_session_path%></h1>
 <% end %>

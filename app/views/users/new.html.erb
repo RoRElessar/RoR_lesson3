@@ -15,8 +15,8 @@
       <%= f.label :password_confirmation %> <br>
       <%= f.password_field :password_confirmation, placeholder: 'Confirm your password' %> <br>
 
-      <%= f.submit "Create user", class: "btn btn-large btn-success"%>
+      <%= f.submit 'Create user', class: "btn btn-large btn-primary"%>
     <% end %>
 </div>
 
-<p><%= link_to "Back", signin_path%></p>
+<p>Or <%= link_to 'sign in', signin_path%></p>
