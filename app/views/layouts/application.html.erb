@@ -8,12 +8,16 @@
 </head>
 
 <body>
-  <header class="navbar navbar-fixed-top navbar-inverse">
+  <header class="navbar static-fixed-top navbar-inverse" id="bradius">
     <div class="navbar-inner">
       <div class="container">
-        <% link_to 'Blog', '#', id: 'logo'%>
-        <div align="right" class="dropdown">
+        <div id="line">
+        <%= link_to image_tag('linkedin.png', size: '50x50'), root_path, id: 'logo'%>
+        </div>
+
+        <div align="right" class="dropdown" id="middle">
           <% if signed_in?%>
+              <%= gravatar_for current_user, size: 50%>
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <%= current_user.name%>
@@ -24,7 +28,7 @@
             <li><%= link_to 'Profile', current_user %></li>
             <li><%= link_to 'All users', users_path %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'Log out', signout_path, method: "delete"%></li>
+            <li><%= link_to 'Log out', signout_path, method: 'delete'%></li>
           </ul>
         </div>
              <% else %>
@@ -41,9 +45,7 @@
   <div class="container">
     <% yield %>
   </div>
-  <br>
-  <br>
- <%= yield %>
+   <%= yield %>
 
 </body>
 </html>
