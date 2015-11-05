@@ -13,13 +13,13 @@
             <%= f.label :password%> <br>
             <%= f.password_field :password, placeholder: 'Password'%> <br>
 
-            <%= f.submit "Log in", class: "btn btn-large btn-primary"%>
+            <%= f.submit 'Log in', class: 'btn btn-large btn-primary'%>
         <% end %>
 
 
-        <p>New user? <%= link_to "Sign up now!", signup_path%></p>
+        <p>New user? <%= link_to 'Sign up now!', signup_path%></p>
       </div>
   <% else %>
-    <h3 align="center">Sorry, but you have to go <%= link_to "back", current_user %></h3>
+    <h3 align="center">Sorry, but you have to go <%= link_to 'back', current_user %></h3>
   <% end %>
 </div>
