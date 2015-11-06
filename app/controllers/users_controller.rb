@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated!"
+      flash[:success] = 'Profile has been updated!'
       redirect_to @user
     else
       render 'edit'
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         sign_in @user
-        flash[:success] = "Welcome to the Blog!"
+        flash[:success] = 'Welcome to the Blog!'
         redirect_to @user
       else
         render 'new'
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted."
+    flash[:success] = 'User deleted.'
     redirect_to users_url
   end
 
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(signin_url) unless current_user?(@user)
     end
 
     def admin_user

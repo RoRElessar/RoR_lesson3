@@ -22,7 +22,9 @@
            <dt> <%= post.body %> </dt>
             <dd><%= post.tags %> </dd>
          </dl>
-         <%= gravatar_for post.user, size: 40%> Created by <b><%= post.user.name if post.user %></b>
+        <% if post.user%>
+         <%= gravatar_for post.user, size: 40%> Created by <b><%= post.user.name %></b>
+        <% end %>
         </td>
 
     <div>
