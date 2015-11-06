@@ -24,6 +24,8 @@
   </div>
 
   <div align="right">
-    <%= gravatar_for @post.user, size: 40%> <span style="vertical-align: bottom">Created by <b><%= @post.user.name %></b></span>
+    <% if post.user%>
+      <%= gravatar_for @post.user, size: 40%> <span style="vertical-align: bottom">Created by <b><%= @post.user.name %></b></span>
+    <% end %>
   </div>
 </div>
