@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <div class="show_posts  ">
-<p>
+<p class="post-show">
   <strong>Title:</strong>
   <%= @post.try(:title) %>
 </p>
 
-<p>
+<p class="post-show" style="margin-right: 3px" align="justify">
   <strong>Body:</strong>
   <%= @post.try(:body) %>
 </p>
 
-<p>
+<p class="post-show">
   <strong>Tags:</strong>
   <%= @post.try(:tags) %>
 </p>
@@ -23,7 +23,7 @@
     <%= link_to image_tag('navigation-left.png', size: '32x32'), posts_path %>
   </div>
 
-  <div align="right">
+  <div align="right" style="margin-bottom: 3px; margin-right: 3px">
       <%= gravatar_for @post.user, size: 40%> <span style="vertical-align: bottom">Created by <b><%= @post.user.name %></b></span>
   </div>
 </div>

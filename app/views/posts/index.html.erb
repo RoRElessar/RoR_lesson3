@@ -17,8 +17,8 @@
 
     <div class="show_posts">
         <p align="center"><b> <%= post.title %> </b> </p>
-        <p><%= post.body %> </p>
-        <p align="right" style="color: #2fa3ff"> <%= post.tags %> </p>
+        <p style="margin-left: 3px; margin-right: 3px;" align="justify"><%= post.body %> </p>
+        <p align="right" style="color: #2fa3ff; margin-right: 3px"> <%= post.tags %> </p>
 
       <div id="line" style="margin-top: 10px">
           <%= link_to image_tag('web-cam.png', size: '32x32'), post %>
@@ -28,7 +28,7 @@
           <% end %>
       </div>
 
-     <div align="right">
+     <div align="right" style="margin-bottom: 3px; margin-right: 3px">
        <% if post.user%>
            <%= gravatar_for post.user, size: 40%> Created by <b><%= post.user.name %></b>
        <% end %>
