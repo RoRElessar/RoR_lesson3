@@ -13,29 +13,28 @@
 
 <%= will_paginate %>
 
-<div class="show_posts">
     <% @posts.each do |post| %>
 
+    <div class="show_posts">
         <p align="center"><b> <%= post.title %> </b> </p>
         <p><%= post.body %> </p>
         <p align="right" style="color: #2fa3ff"> <%= post.tags %> </p>
 
-    <div id="line" style="margin-top: 10px">
+      <div id="line" style="margin-top: 10px">
           <%= link_to image_tag('web-cam.png', size: '32x32'), post %>
           <% if current_user == post.user %>
             <%= link_to image_tag('pencil.png', size: '32x32'), edit_post_path(post) %>
             <%= link_to image_tag('bin.png', size: '32x32'), post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
-    </div>
+      </div>
 
      <div align="right">
        <% if post.user%>
            <%= gravatar_for post.user, size: 40%> Created by <b><%= post.user.name %></b>
        <% end %>
-       <hr class="hr_style">
      </div>
-    <% end %>
-</div>
+    </div>
+  <% end %>
 <br>
 
 
