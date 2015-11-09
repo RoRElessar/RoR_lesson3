@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <div align="right" id="middle">
-  <%= form_tag('/search', method: 'get') do%>
-      <% label_tag(:q, 'Search for:') %>
-      <%= text_field_tag 'Search', nil, class: 'input-sm',placeholder: 'Search for...'%>
+  <%= form_tag(posts_path, method: 'GET') do%>
+      <%= text_field_tag :search, params[:search], class: 'input-sm',placeholder: 'Search for...'%>
       <%= image_submit_tag('search.png', class: 'picture_size')%>
 
   <% end %>
@@ -11,7 +10,7 @@
 
 <h1 align="center">Listing Posts</h1>
 
-<span class="paginate"> <%= will_paginate %> </span>
+  <span class="paginate"> <%= will_paginate %> </span>
 
     <% @posts.each do |post| %>
 
@@ -45,4 +44,4 @@
   </div>
 <% end %>
 
-<span class="paginate"> <%= will_paginate %> </span>
+  <span class="paginate"> <%= will_paginate %> </span>
