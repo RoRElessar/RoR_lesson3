@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div align="middle" id="middle" class="v-middle">
+<div align="right" id="middle">
   <%= form_tag('/search', method: 'get') do%>
       <% label_tag(:q, 'Search for:') %>
       <%= text_field_tag 'Search', nil, class: 'input-sm',placeholder: 'Search for...'%>
