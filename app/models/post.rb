@@ -6,4 +6,10 @@ class Post < ActiveRecord::Base
   validates :title, length: { in: 5..100}
   validates :tags, uniqueness: true
   validates :user_id, presence: true
+
+  def self.search(search)
+    where("title LIKE ? OR body LIKE ?", "%#{search}%", "%#{search}%")
+  end
+
 end
+
