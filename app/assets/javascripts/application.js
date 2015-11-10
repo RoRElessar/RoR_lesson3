@@ -15,3 +15,7 @@
 //= require turbolinks
 //= require_tree
 //= require bootstrap-sprockets
+
+$(function() {
+      $( "#dialog" ).fadeOut(5000);
+    });
