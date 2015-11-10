@@ -49,14 +49,6 @@
   margin-left: 3px;
 }
 
-.hr_style {
-  color: #2fa3ff;
-  background-color: #2fa3ff;
-  border:0px none;
-  height:1px;
-  clear:both;
-}
-
 .post-show {
   margin-left: 3px;
   margin-top: 1px;
@@ -70,3 +62,10 @@
 .paginate {
   margin-left: 3px;
 }
+
+#dialog {
+  border:  1px solid #2fa3ff;;
+  border-radius: 7px;
+  width: 22%;
+  padding-top: 8px;
+  }
