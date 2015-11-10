@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     end
   end
 
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -69,10 +70,6 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-#  def search
-#    @q = Post.find
-#  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
