@@ -1,0 +1,8 @@
+%h1 Editing Post
+
+= render 'form'
+
+%br
+%div {align = "center"}
+  = link_to image_tag('web-cam.png', size: '32x32'), @post
+  = link_to image_tag('navigation-left.png', size: '32x32'), posts_path
