@@ -5,9 +5,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
      @posts = unless params[:search].nil?
-      Post.search(params[:search]).paginate(page: params[:page], :per_page => 5)
+      Post.search(params[:search]).paginate(page: params[:page], :per_page => 5).find_with_reputation(:votes, :all, order: 'votes desc')
      else
-      @posts = Post.paginate(page: params[:page], :per_page => 5)
+      @posts = Post.paginate(page: params[:page], :per_page => 5).find_with_reputation(:votes, :all, order: 'votes desc')
     end
   end
 
@@ -45,6 +45,18 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  def vote
+    if current_user
+      value = params[:type] == 'up' ? 1 : -1
+      @post = Post.find(params[:id])
+      @post.add_or_update_evaluation(:votes, value, current_user)
+      redirect_to :back, notice: 'Thank you for voting.'
+    else
+      redirect_to :back, notice: 'You must be logged in.'
+    end
+  end
+
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update

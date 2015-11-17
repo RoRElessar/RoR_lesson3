@@ -2,7 +2,7 @@
 
 <div align="right" id="middle">
   <%= form_tag(posts_path, method: 'GET') do%>
-      <%= text_field_tag :search, params[:search], class: 'input-sm',placeholder: 'Search for...'%>
+      <%= text_field_tag :search, params[:search], class: 'input-sm', placeholder: 'Search for...'%>
       <%= image_submit_tag('search.png', class: 'picture_size')%>
 
   <% end %>
@@ -19,6 +19,16 @@
         <p style="margin-left: 3px; margin-right: 3px;" align="justify"><%= post.body %> </p>
         <p align="right" style="color: #2fa3ff; margin-right: 3px"> <%= post.tags %> </p>
 
+      <div class="votes">
+        <% unless current_user == post.user %>
+          <%= link_to image_tag('arrow-up.png', size: '22x22'), vote_post_path(post, type: 'up'), method: 'post' %>
+        <% end %>
+        <strong><%= post.reputation_for(:votes).to_i %></strong>
+        <% unless current_user == post.user %>
+          <%= link_to image_tag('arrow-down.png', size: '22x22'), vote_post_path(post, type: 'down'), method: 'post' %>
+        <% end %>
+      </div>
+
       <div id="line" style="margin-top: 10px">
           <%= link_to image_tag('web-cam.png', size: '32x32'), post %>
           <% if current_user == post.user %>
@@ -29,7 +39,15 @@
 
      <div align="right" style="margin-bottom: 3px; margin-right: 3px">
        <% if post.user%>
-           <%= gravatar_for post.user, size: 40%> Created by <b><%= post.user.name %></b>
+         <table>
+           <tr>
+             <td rowspan="2"> <%= gravatar_for post.user, size: 40%></td>
+             <td>Created by:</td>
+           </tr>
+           <tr>
+             <td><b><%= post.user.name %></b></td>
+           </tr>
+         </table>
        <% end %>
      </div>
     </div>

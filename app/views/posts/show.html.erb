@@ -16,6 +16,16 @@
   <%= @post.try(:tags) %>
 </p>
 
+  <div class="votes">
+    <% unless current_user == @post.user %>
+        <%= link_to image_tag('arrow-up.png', size: '22x22'), vote_post_path(@post, type: 'up'), method: 'post' %>
+    <% end %>
+    <strong><%= @post.reputation_for(:votes).to_i %></strong>
+    <% unless current_user == @post.user %>
+        <%= link_to image_tag('arrow-down.png', size: '22x22'), vote_post_path(@post, type: 'down'), method: 'post' %>
+    <% end %>
+  </div>
+
   <div style="margin-top: 10px" id="line">
     <%if current_user == @post.user%>
     <%= link_to image_tag('pencil.png', size: '32x32'), edit_post_path(@post) %>
@@ -24,6 +34,7 @@
   </div>
 
   <div align="right" style="margin-bottom: 3px; margin-right: 3px">
-      <%= gravatar_for @post.user, size: 40%> <span style="vertical-align: bottom">Created by <b><%= @post.user.name %></b></span>
+     <%= gravatar_for @post.user, size: 40%> <span style="vertical-align: bottom">Created by <b><%= @post.user.name %></b></span>
   </div>
+
 </div>
