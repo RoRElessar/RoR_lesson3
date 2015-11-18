@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  has_many :comments
   default_scope -> {order('created_at DESC')}
   validates_presence_of :title, :body, :tags, :user
   validates :title, length: { in: 5..140}
