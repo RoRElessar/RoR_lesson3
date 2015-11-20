@@ -34,7 +34,15 @@
   </div>
 
   <div align="right" style="margin-bottom: 3px; margin-right: 3px">
-     <%= gravatar_for @post.user, size: 40%> <span style="vertical-align: bottom">Created by <b><%= @post.user.name %></b></span>
+     <table>
+           <tr>
+             <td rowspan="2"> <%= gravatar_for @post.user, size: 40%></td>
+             <td>Created by:</td>
+           </tr>
+           <tr>
+             <td><b><%= @post.user.name %></b></td>
+           </tr>
+         </table>
   </div>
   <hr>
   <h5 class="comment-title" align="center"><strong>Comments:</strong></h5>
