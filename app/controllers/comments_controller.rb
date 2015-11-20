@@ -5,18 +5,31 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
     @comment.user = current_user
     @comment.save
-    redirect_to post_path(@post)
+    redirect_to post_path(@post), notice: 'Comment was successfully created.'
   end
 
   def edit
-    @comment = Comment.find params[:comment][:post_id]
+    @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
+    #@comment = Comment.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    #@comment = Comment.find(params[:id])
+      if @comment.update_attributes(comment_params)
+        redirect_to @post, notice: 'Comment was successfully updated.'
+      else
+        render :edit
+      end
   end
 
   def destroy
-    @comment = Comment.find (params[:id])
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to post_path(@post), notice: 'Comment was successfully destroyed.'
   end
 
   private
