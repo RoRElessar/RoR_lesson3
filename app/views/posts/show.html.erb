@@ -47,14 +47,14 @@
           </p>
     </div>
 
-    <div>
+    <div id="line" style="margin-top: 10px">
       <% if comment.user == current_user%>
         <%= link_to image_tag('pencil.png', size: '30x30'), edit_post_comment_path(@post, comment)%>
         <%= link_to image_tag('bin.png', size: '30x30'), [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }%>
       <%end%>
     </div>
 
-    <div align="right" style="margin-bottom: 3px; margin-right: 3px">
+    <div  align="right" style="margin-bottom: 3px; margin-right: 3px">
       <table>
         <tr>
           <td rowspan="2"> <%= gravatar_for comment.user, size: 40%></td>
