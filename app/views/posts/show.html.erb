@@ -40,14 +40,14 @@
   <h5 class="comment-title" align="center"><strong>Comments:</strong></h5>
 
   <% @post.comments.each do |comment| %>
-  <div>
+  <div align="left">
     <div class="post-show">
           <p>
             <%= comment.comment %>
           </p>
     </div>
 
-    <div id="line" style="margin-top: 10px">
+    <div id="line_" style="margin-top: 10px">
       <% if comment.user == current_user%>
         <%= link_to image_tag('pencil.png', size: '30x30'), edit_post_comment_path(@post, comment)%>
         <%= link_to image_tag('bin.png', size: '30x30'), [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }%>
