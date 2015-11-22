@@ -33,7 +33,7 @@
     <%= link_to image_tag('navigation-left.png', size: '32x32'), posts_path %>
   </div>
 
-  <div align="right" style="margin-bottom: 3px; margin-right: 3px">
+  <div align="right" style="margin: auto; width: 170px; margin-bottom: 3px; margin-right: 3px">
      <table>
            <tr>
              <td rowspan="2"> <%= gravatar_for @post.user, size: 40%></td>
@@ -62,7 +62,7 @@
       <%end%>
     </div>
 
-    <div  align="right" style="margin-bottom: 3px; margin-right: 3px">
+    <div  align="right" style="margin: auto; width: 170px; margin-bottom: 3px; margin-right: 3px">
       <table>
         <tr>
           <td rowspan="2"> <%= gravatar_for comment.user, size: 40%></td>
