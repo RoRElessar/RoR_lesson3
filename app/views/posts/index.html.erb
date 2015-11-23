@@ -17,7 +17,7 @@
     <div class="show_posts">
         <p align="center" style="margin-top: 1px"><b> <%= post.title %> </b> </p>
         <p style="margin-left: 3px; margin-right: 3px;" align="justify"><%= post.body %> </p>
-        <p align="right" style="color: #2fa3ff; margin-right: 3px"> <%= post.tags %> </p>
+        <p align="right" style="color: #2fa3ff; margin-right: 3px"> <%= raw post.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ')%> </p>
 
       <div class="votes">
         <% unless current_user == post.user %>
