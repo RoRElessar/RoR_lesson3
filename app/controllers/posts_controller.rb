@@ -5,10 +5,14 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
      @posts = unless params[:search].nil?
-      Post.search(params[:search]).paginate(page: params[:page], :per_page => 5).find_with_reputation(:votes, :all, order: 'votes desc')
+       Post.search(params[:search]).paginate(page: params[:page], :per_page => 5).find_with_reputation(:votes, :all, order: 'votes desc')
      else
-      @posts = Post.paginate(page: params[:page], :per_page => 5).find_with_reputation(:votes, :all, order: 'votes desc')
-    end
+       if params[:tag]
+         @posts = Post.tagged_with(params[:tag]).paginate(page: params[:page], :per_page => 5)
+       else
+         @posts = Post.paginate(page: params[:page], :per_page => 5).find_with_reputation(:votes, :all, order: 'votes desc')
+       end
+     end
   end
 
 
@@ -92,6 +96,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :tags).merge(user_id: current_user.id)
+      params.require(:post).permit(:title, :body, :tag_list).merge(user_id: current_user.id)
     end
 end

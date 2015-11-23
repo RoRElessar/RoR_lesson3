@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  get 'tags/:tag', to: 'posts#index', as: :tag
   resources :posts do
     resources :comments
     member { post :vote }

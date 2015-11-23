@@ -13,7 +13,7 @@
 
 <p class="post-show">
   <strong>Tags:</strong>
-  <%= @post.try(:tags) %>
+  <%= raw @post.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ')%>
 </p>
 
   <div class="votes">
