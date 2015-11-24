@@ -1,6 +1,6 @@
 <h1 align="center">Update your profile</h1>
 
-<div>
+<div class="margin-left">
   <%= form_for @user do |f|%>
     <%= render 'shared/error_messages'%>
 
@@ -16,7 +16,7 @@
     <%= f.label :password_confirmation%> <br>
     <%= f.password_field :password_confirmation, placeholder: 'Confirm password'%> <br>
 
-    <%= f.submit 'Save changes', class: "btn btn-large btn-primary"%> <br>
+    <%= f.submit 'Save changes', class: 'btn btn-large btn-primary'%> <br>
     <%= link_to 'Back to profile', user_path%>
   <% end %>
   <br>
