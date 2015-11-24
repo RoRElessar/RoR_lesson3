@@ -1,11 +1,20 @@
 <% if signed_in?%>
-<h1 align="center"><%= current_user.name%>'s profile.</h1>
+<h1 align="center"><%= @user.name%>'s profile.</h1>
 
-<h3>
+<h3 style="margin-left: 3px">
   <%= gravatar_for @user %> <%= link_to 'Edit profile:', edit_user_path%>
   <%= @user.name %>
 </h3>
 <% else %>
     <h1 align="center">Please <%= link_to 'sign in', new_session_path%></h1>
 <% end %>
-
+<br>
+<div class="span8">
+    <% if @user.posts.any? %>
+      <h3 style="margin-left: 3px">Posts (<%= @user.posts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @posts %>
+      </ol>
+      <span class="paginate"><%= will_paginate @posts %></span>
+    <% end %>
+  </div>

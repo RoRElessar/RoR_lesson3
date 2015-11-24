@@ -92,3 +92,32 @@
   float:left;
   margin-left:15px;
  }
+
+.microposts {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.content {
+  display: block;
+  margin-right: 3px;
+}
+.timestamp {
+  color: #666666;
+  margin-left: 870px;
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+.margin-left {
+  margin-left: 3px;
+}
