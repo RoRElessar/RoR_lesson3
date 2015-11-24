@@ -2,9 +2,9 @@
   <h1 align="center">Welcome to the Blog!</h1>
 
   <%unless signed_in?%>
-    <h2>Sign in</h2>
+    <h2 class="margin-left">Sign in</h2>
 
-      <div>
+      <div class="margin-left">
         <%= form_for(:session, url: sessions_path) do |f| %>
 
             <%= f.label :email%> <br>

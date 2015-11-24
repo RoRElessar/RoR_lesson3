@@ -11,13 +11,11 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    #@comment = Comment.find(params[:id])
   end
 
   def update
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    #@comment = Comment.find(params[:id])
       if @comment.update_attributes(comment_params)
         redirect_to @post, notice: 'Comment was successfully updated.'
       else

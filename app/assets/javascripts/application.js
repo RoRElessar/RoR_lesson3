@@ -16,6 +16,6 @@
 //= require_tree
 //= require bootstrap-sprockets
 
-$(function() {
+$(document).ready(function() {
       $( "#dialog" ).fadeOut(5000);
     });

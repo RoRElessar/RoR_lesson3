@@ -5,7 +5,6 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :body, :user
   validates :title, length: { in: 5..140}
   validates :body, length: {minimum: 140}
- # validates :tag_list, uniqueness: true
   validates :user_id, presence: true
 
   has_reputation :votes,
