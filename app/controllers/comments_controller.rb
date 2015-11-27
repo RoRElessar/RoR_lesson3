@@ -16,18 +16,24 @@ class CommentsController < ApplicationController
   def update
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
+    if @comment.user == current_user
       if @comment.update_attributes(comment_params)
         redirect_to @post, notice: 'Comment was successfully updated.'
       else
         render :edit
       end
+    end
   end
 
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    @comment.destroy
-    redirect_to post_path(@post), notice: 'Comment was successfully destroyed.'
+    if @comment.user == current_user
+      @comment.destroy
+      redirect_to post_path(@post), notice: 'Comment was successfully destroyed.'
+    else
+      redirect_to post_path(@post), notice: 'You are not allowed to destroy that comment.'
+    end
   end
 
   private
