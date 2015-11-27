@@ -52,9 +52,9 @@ class PostsController < ApplicationController
   end
 
   def vote
-    if current_user
+    @post = Post.find(params[:id])
+    unless current_user == @post.user
       value = params[:type] == 'up' ? 1 : -1
-      @post = Post.find(params[:id])
       @post.add_or_update_evaluation(:votes, value, current_user)
       redirect_to :back, notice: 'Thank you for voting.'
     else
