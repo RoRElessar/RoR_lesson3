@@ -45,7 +45,7 @@
              <td>Created by:</td>
            </tr>
            <tr>
-             <td><b><%= post.user.name %></b></td>
+             <td><b><%= link_to post.user.name, post.user %></b></td>
            </tr>
          </table>
        <% end %>
