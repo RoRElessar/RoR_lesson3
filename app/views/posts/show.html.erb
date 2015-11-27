@@ -13,7 +13,7 @@
 
 <p class="post-show">
   <strong>Tags:</strong>
-  <%= raw @post.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ')%>
+  <%= raw @post.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ') %>
 </p>
 
   <div class="votes">
@@ -27,7 +27,7 @@
   </div>
 
   <div style="margin-top: 10px" id="line">
-    <%if current_user == @post.user%>
+    <% if current_user == @post.user %>
     <%= link_to image_tag('pencil.png', size: '32x32'), edit_post_path(@post) %>
     <% end %>
     <%= link_to image_tag('navigation-left.png', size: '32x32'), posts_path %>
@@ -36,7 +36,7 @@
   <div align="right" style="margin: auto; width: 170px; margin-bottom: 3px; margin-right: 3px">
      <table>
            <tr>
-             <td rowspan="2"> <%= gravatar_for @post.user, size: 40%></td>
+             <td rowspan="2"> <%= gravatar_for @post.user, size: 40 %></td>
              <td>Created by:</td>
            </tr>
            <tr>
@@ -56,16 +56,16 @@
     </div>
 
     <div id="line_" style="margin-top: 10px">
-      <% if comment.user == current_user%>
-        <%= link_to image_tag('pencil.png', size: '30x30'), edit_post_comment_path(@post, comment)%>
-        <%= link_to image_tag('bin.png', size: '30x30'), [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }%>
-      <%end%>
+      <% if comment.user == current_user %>
+        <%= link_to image_tag('pencil.png', size: '30x30'), edit_post_comment_path(@post, comment) %>
+        <%= link_to image_tag('bin.png', size: '30x30'), [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </div>
 
     <div  align="right" style="margin: auto; width: 170px; margin-bottom: 3px; margin-right: 3px">
       <table>
         <tr>
-          <td rowspan="2"> <%= gravatar_for comment.user, size: 40%></td>
+          <td rowspan="2"> <%= gravatar_for comment.user, size: 40 %></td>
           <td>Created by:</td>
         </tr>
         <tr>
@@ -74,8 +74,8 @@
       </table>
     </div>
   </div>
-     <%end%>
+     <% end %>
 
-<%= render 'comments/form'%>
+<%= render 'comments/form' %>
 
 </div>

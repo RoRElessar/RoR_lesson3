@@ -1,7 +1,7 @@
 <li>
   <span><b><%= link_to post.title, post_path(post) %></b></span>
   <p align="justify"><span class="content"><%= post.body %></span></p>
-  <span><%= raw post.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ')%></span><br>
+  <span><%= raw post.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ') %></span><br>
   <span><strong>Reputation: <%= post.reputation_for(:votes).to_i %></strong></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(post.created_at) %> ago.
