@@ -35,6 +35,13 @@
             <%= link_to image_tag('pencil.png', size: '32x32'), edit_post_path(post) %>
             <%= link_to image_tag('bin.png', size: '32x32'), post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
+        <% if signed_in?%>
+          <% unless current_user.favorite_posts.exists?(id: post.id) %>
+              <%= link_to image_tag('star.png', size: '32x32'), favorite_posts_path(post_id: post), method: :post %>
+          <% else %>
+              <%= link_to image_tag('star_red.png', size: '32x32'), favorite_post_path(post), method: :delete %>
+          <% end %>
+        <% end %>
       </div>
 
      <div align="right" style="margin: auto; width: 170px; margin-bottom: 3px; margin-right: 3px">
