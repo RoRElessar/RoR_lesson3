@@ -30,6 +30,11 @@
     <% if current_user == @post.user %>
     <%= link_to image_tag('pencil.png', size: '32x32'), edit_post_path(@post) %>
     <% end %>
+    <% unless current_user.favorite_posts.exists?(id: @post.id) %>
+        <%= link_to image_tag('star.png', size: '32x32'), favorite_posts_path(post_id: @post), method: :post %>
+    <% else %>
+        <%= link_to image_tag('star_red.png', size: '32x32'), favorite_post_path(@post), method: :delete %>
+    <% end %>
     <%= link_to image_tag('navigation-left.png', size: '32x32'), posts_path %>
   </div>
 

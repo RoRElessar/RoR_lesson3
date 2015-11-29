@@ -1,0 +1,10 @@
+<h1 align="center">Favorite posts</h1>
+
+<div class="content">
+  <ol>
+    <% @posts.each do |fav| %>
+      <p><b> <%= link_to fav.title, post_path(fav) %> </b></p>
+      <p align="justify"> <%= fav.body %> </p>
+    <% end %>
+  </ol>
+</div>

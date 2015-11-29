@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#index', as: :tag
   resources :posts do
     resources :comments
+    get :favorites
     member { post :vote }
   end
+  resources :favorite_posts, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

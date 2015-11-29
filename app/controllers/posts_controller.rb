@@ -3,6 +3,11 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
+  def favorites
+    @user = current_user
+    @posts = @user.favorite_posts.all
+  end
+
   def index
      @posts = unless params[:search].nil?
        Post.search(params[:search]).paginate(page: params[:page], :per_page => 5).find_with_reputation(:votes, :all, order: 'votes desc')
