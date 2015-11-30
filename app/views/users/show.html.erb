@@ -11,7 +11,7 @@
 <br>
 <div class="span8">
     <% if @user.posts.any? %>
-      <h3 style="margin-left: 3px">Posts (<%= @user.posts.count %>) <%= link_to 'My favorites', post_favorites_path(@posts) %> </h3>
+      <h3 style="margin-left: 3px">Posts (<%= @user.posts.count %>) </h3>
       <ol class="microposts">
         <%= render @posts %>
       </ol>
